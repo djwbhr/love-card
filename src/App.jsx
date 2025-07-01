@@ -1,11 +1,11 @@
-import './App.css'
-import loveImg from './assets/love.jpg'
-import { useState } from 'react'
+import "./App.css";
+import loveImg from "./assets/love.jpg";
+import { useState } from "react";
 
-const HEARTS = ['❤️', '💖', '💕', '💘', '💝', '💗', '💓', '💞', '💟']
+const HEARTS = ["❤️", "💖", "💕", "💘", "💝", "💗", "💓", "💞", "💟"];
 
 function App() {
-  const [fallingHearts, setFallingHearts] = useState([])
+  const [fallingHearts, setFallingHearts] = useState([]);
 
   const handleLoveClick = () => {
     // Добавляем 5 сердечек за клик
@@ -14,24 +14,30 @@ function App() {
       left: Math.random() * 90 + 5, // процент от ширины
       size: Math.random() * 24 + 24, // px
       emoji: HEARTS[Math.floor(Math.random() * HEARTS.length)],
-      duration: Math.random() * 1 + 2.5 // 2.5-3.5 сек
-    }))
-    setFallingHearts((prev) => [...prev, ...newHearts])
+      duration: Math.random() * 1 + 2.5, // 2.5-3.5 сек
+    }));
+    setFallingHearts((prev) => [...prev, ...newHearts]);
     // Удаляем сердечки после анимации
     setTimeout(() => {
-      setFallingHearts((prev) => prev.slice(newHearts.length))
-    }, 4000)
-  }
+      setFallingHearts((prev) => prev.slice(newHearts.length));
+    }, 4000);
+  };
 
   return (
     <div className="love-card-bg">
       <div className="love-card-container">
         <img src={loveImg} alt="love" className="love-img" />
-        <h1 className="love-title">С 3-летием наших отношений!</h1>
+        <h1 className="love-title">С 3-летием нас!</h1>
         <p className="love-message">
-          Любимая, вот уже три года мы вместе, и каждый день с тобой — это счастье.<br/>
-          Спасибо за твою любовь, заботу и улыбку. Я тебя очень люблю<br/>
-          Пусть впереди нас ждёт ещё много прекрасных моментов и счастливых лет вместе.
+          Любимая, вот уже три года мы вместе, и каждый день с тобой — это
+          счастье.
+          <br />
+          Спасибо за твою любовь, заботу и улыбку. Спасибо что всегда рядом, что
+          такая красивая и смешная, и что ты такая добрая и милая. <br />
+          Я тебя очень люблю
+          <br />
+          Пусть впереди нас ждёт ещё много прекрасных моментов и счастливых лет
+          вместе.
         </p>
         <div className="hearts">
           <span>❤️</span>
@@ -39,7 +45,9 @@ function App() {
           <span>💕</span>
           <span>💘</span>
         </div>
-        <button className="love-btn" onClick={handleLoveClick}>Я тебя люблю</button>
+        <button className="love-btn" onClick={handleLoveClick}>
+          Я тебя люблю
+        </button>
         {/* Падающие сердечки */}
         <div className="falling-hearts">
           {fallingHearts.map((h) => (
@@ -47,9 +55,9 @@ function App() {
               key={h.id}
               className="falling-heart"
               style={{
-                left: h.left + '%',
-                fontSize: h.size + 'px',
-                animationDuration: h.duration + 's',
+                left: h.left + "%",
+                fontSize: h.size + "px",
+                animationDuration: h.duration + "s",
               }}
             >
               {h.emoji}
@@ -58,7 +66,7 @@ function App() {
         </div>
       </div>
     </div>
-  )
+  );
 }
 
-export default App
+export default App;
