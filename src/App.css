@@ -1,0 +1,180 @@
+#root {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 2rem;
+  text-align: center;
+}
+
+.logo {
+  height: 6em;
+  padding: 1.5em;
+  will-change: filter;
+  transition: filter 300ms;
+}
+.logo:hover {
+  filter: drop-shadow(0 0 2em #646cffaa);
+}
+.logo.react:hover {
+  filter: drop-shadow(0 0 2em #61dafbaa);
+}
+
+@keyframes logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  a:nth-of-type(2) .logo {
+    animation: logo-spin infinite 20s linear;
+  }
+}
+
+.card {
+  padding: 2em;
+}
+
+.read-the-docs {
+  color: #888;
+}
+
+.love-card-bg {
+  min-height: 100vh;
+  background: linear-gradient(135deg, #ffdde1 0%, #ee9ca7 100%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.love-card-container {
+  background: rgba(255, 255, 255, 0.85);
+  border-radius: 32px;
+  box-shadow: 0 8px 32px 0 rgba(255, 0, 100, 0.2);
+  padding: 48px 32px;
+  max-width: 420px;
+  width: 100%;
+  text-align: center;
+  position: relative;
+}
+
+.love-title {
+  font-family: "Caveat", cursive, sans-serif;
+  font-size: 2.5rem;
+  color: #e75480;
+  margin-bottom: 24px;
+  animation: fadeInDown 1.2s;
+}
+
+.love-message {
+  font-size: 1.2rem;
+  color: #a94442;
+  margin-bottom: 32px;
+  line-height: 1.6;
+  animation: fadeIn 2s;
+}
+
+.hearts {
+  font-size: 2rem;
+  margin-bottom: 32px;
+  animation: hearts-float 2.5s infinite alternate;
+}
+
+.love-btn {
+  background: linear-gradient(90deg, #ff758c 0%, #ff7eb3 100%);
+  color: #fff;
+  border: none;
+  border-radius: 24px;
+  padding: 14px 36px;
+  font-size: 1.1rem;
+  font-family: inherit;
+  cursor: pointer;
+  box-shadow: 0 4px 16px rgba(255, 0, 100, 0.15);
+  transition: background 0.3s, transform 0.2s;
+}
+.love-btn:hover {
+  background: linear-gradient(90deg, #ff7eb3 0%, #ff758c 100%);
+  transform: scale(1.07);
+}
+.love-btn:active,
+.love-btn:focus {
+  outline: none;
+}
+
+@keyframes fadeInDown {
+  from {
+    opacity: 0;
+    transform: translateY(-40px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+@keyframes hearts-float {
+  from {
+    transform: translateY(0);
+  }
+  to {
+    transform: translateY(-16px);
+  }
+}
+
+.love-img {
+  display: block;
+  margin: 0 auto 28px auto;
+  max-width: 220px;
+  width: 100%;
+  border-radius: 24px;
+  box-shadow: 0 6px 32px 0 rgba(80, 0, 40, 0.18),
+    0 1.5px 8px 0 rgba(255, 0, 100, 0.1);
+  filter: grayscale(1) contrast(1.1);
+  border: 4px solid #fff0f5;
+  transition: filter 0.4s;
+}
+.love-img:hover {
+  filter: grayscale(0.2) contrast(1.2) drop-shadow(0 0 12px #ffb6c1);
+}
+
+.falling-hearts {
+  pointer-events: none;
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: 100vw;
+  height: 100vh;
+  z-index: 100;
+  overflow: visible;
+}
+.falling-heart {
+  position: absolute;
+  top: -40px;
+  user-select: none;
+  animation: fall-heart linear forwards;
+  opacity: 0.85;
+  filter: drop-shadow(0 2px 8px #ffb6c1cc);
+  will-change: transform, opacity;
+}
+@keyframes fall-heart {
+  0% {
+    transform: translateY(0) scale(1) rotate(-10deg);
+    opacity: 0.9;
+  }
+  80% {
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(90vh) scale(1.2) rotate(20deg);
+    opacity: 0;
+  }
+}
