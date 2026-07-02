@@ -78,8 +78,34 @@
 
 .hearts {
   font-size: 2rem;
-  margin-bottom: 32px;
+  margin-bottom: 16px;
   animation: hearts-float 2.5s infinite alternate;
+}
+
+.days-counter {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+  margin-bottom: 24px;
+  animation: fadeIn 2s;
+}
+.days-number {
+  font-family: "Caveat", cursive, sans-serif;
+  font-size: 2.8rem;
+  font-weight: 700;
+  color: #e75480;
+  line-height: 1;
+  animation: days-pulse 2s infinite ease-in-out;
+}
+.days-label {
+  font-size: 0.95rem;
+  color: #c94f6e;
+  letter-spacing: 0.5px;
+}
+@keyframes days-pulse {
+  0%, 100% { transform: scale(1); }
+  50% { transform: scale(1.06); }
 }
 
 .love-btn {
@@ -177,4 +203,121 @@
     transform: translateY(90vh) scale(1.2) rotate(20deg);
     opacity: 0;
   }
+}
+
+.sparkle-layer {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 200;
+}
+.sparkle {
+  position: absolute;
+  animation: sparkle-burst ease-out forwards;
+  will-change: transform, opacity;
+}
+@keyframes sparkle-burst {
+  0% {
+    transform: translate(0, 0) scale(0.3) rotate(0deg);
+    opacity: 1;
+  }
+  50% {
+    opacity: 1;
+  }
+  100% {
+    transform: translate(var(--dx), var(--dy)) scale(1.4) rotate(360deg);
+    opacity: 0;
+  }
+}
+
+.buttons-stack {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+}
+
+.game-btn {
+  background: linear-gradient(90deg, #a18cd1 0%, #fbc2eb 100%);
+}
+.game-btn:hover {
+  background: linear-gradient(90deg, #fbc2eb 0%, #a18cd1 100%);
+}
+
+.game-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 300;
+  background: linear-gradient(135deg, #ffdde1 0%, #ee9ca7 100%);
+  display: flex;
+  flex-direction: column;
+}
+
+.game-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 16px 24px;
+  background: rgba(255, 255, 255, 0.6);
+  backdrop-filter: blur(6px);
+  font-size: 1.4rem;
+  font-weight: 700;
+  color: #e75480;
+  z-index: 2;
+}
+.game-score {
+  font-size: 1.5rem;
+}
+.game-timer {
+  font-size: 1.5rem;
+}
+.game-close-btn {
+  background: none;
+  border: none;
+  font-size: 1.6rem;
+  cursor: pointer;
+  color: #e75480;
+  padding: 0 8px;
+  line-height: 1;
+}
+
+.game-area {
+  flex: 1;
+  position: relative;
+  overflow: hidden;
+  cursor: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="32" height="32"><text y="28" font-size="28">💖</text></svg>') 16 16, pointer;
+}
+.game-heart {
+  position: absolute;
+  top: -40px;
+  user-select: none;
+  animation: fall-heart linear forwards;
+  cursor: pointer;
+  filter: drop-shadow(0 2px 8px #ffb6c1cc);
+  transition: transform 0.1s;
+  will-change: transform, opacity;
+}
+.game-heart:active {
+  transform: scale(1.5);
+}
+
+.game-result {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 16px;
+  animation: fadeIn 0.6s;
+}
+.game-result-score {
+  font-family: "Caveat", cursive, sans-serif;
+  font-size: 6rem;
+  color: #e75480;
+  line-height: 1;
+  animation: days-pulse 1.5s infinite ease-in-out;
+}
+.game-result-label {
+  font-size: 1.5rem;
+  color: #a94442;
 }
